@@ -1,4 +1,6 @@
-const MatchDetails = ({ data }) => {
+const LiveMatchCard = ({ data }) => {
+    console.log(data);
+
     return (
         <div className='match-item'>
             <header>
@@ -29,7 +31,7 @@ const MatchDetails = ({ data }) => {
                 </div>
             </main>
         </div>
-    );
-};
+    )
+}
 
-export default MatchDetails;
+export default LiveMatchCard;
