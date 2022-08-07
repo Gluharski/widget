@@ -53,6 +53,10 @@ main {
     background-color: rgba(0,0,0,0,1);
 }
 
+footer button {
+    padding: .5rem;
+}
+
 
 /* form styling */
 form {

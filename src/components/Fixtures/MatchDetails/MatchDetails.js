@@ -1,4 +1,5 @@
 const MatchDetails = ({ data }) => {
+    console.log(data);
     return (
         <div className='match-item'>
             <header>

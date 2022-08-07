@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import LiveMatchCard from './LiveMatchCard/LiveMatchCard';
+import MatchCard from './MatchCard/MatchCard';
 
 const LiveMatchesList = () => {
     const [liveMatches, setLiveMatches] = useState([]);
@@ -20,9 +21,13 @@ const LiveMatchesList = () => {
             .catch(err => console.error(err));
     }, []);
 
+    console.log(liveMatches)
+
     return (
         <ul className='match-list'>
-            {liveMatches.map(m => <LiveMatchCard key={m.fixture.id} data={m} />)}
+            {liveMatches.map(m => <Link key={m.fixture.id} to={`/live/${m.fixture.id}`}>
+                {m.teams.home.name} - {m.teams.away.name}
+            </Link>)}
         </ul>
     )
 };
