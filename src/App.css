@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    max-width: 425px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.match-list {
+    max-width: 100%;
+}
+
+.match-item {
+    padding: .5rem;
+    /* margin-bottom: 1rem;  */
+}
+
+header {
+    width: 100%;
+    display: flex;
+
+    font-size: .7rem;
+    color: whitesmoke;
+    font-weight: 600;
+    background-color: rgba(0,0,0,0.3);
+}
+
+header .match-flag {
+    padding: .5rem;
+}
+
+header .match-flag img {
+    width: 1.5rem;
+}
+
+header .match-league {
+    padding: .3rem;
+    /* padding: .3rem 0; */
+}
+
+main { 
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    background-color: rgba(0,0,0,0,1);
+}
+
+
+/* form styling */
+form {
+    width: 100%;
+    padding: .5rem;
+    display: flex;
+}
+
+form input {
+    width: 100%;
+    padding: .5rem;
+}
+
+form button {
+    padding: .5rem;
+}
