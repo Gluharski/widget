@@ -43,6 +43,7 @@ const LiveMatchDetails = () => {
                     </div>
 
                     <h2>
+                        {x.fixture.status.long}:
                         {x.fixture.status.elapsed}
                         <span className='match-animation'>'</span>
                     </h2>
