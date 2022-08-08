@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import MatchCard from './MatchCard/MatchCard';
-
 const LiveMatchesList = () => {
     const [liveMatches, setLiveMatches] = useState([]);
 
@@ -16,16 +14,52 @@ const LiveMatchesList = () => {
         })
             .then(response => response.json())
             .then(response => {
+                console.log(response);
+
                 setLiveMatches(response.response)
             })
             .catch(err => console.error(err));
     }, []);
 
-    console.log(liveMatches)
+    const renderLiveMatchesList = liveMatches.map(m => <Link key={m.fixture.id} to={`/live/${m.fixture.id}`}>
+        <div className='match-item'>
+            <header>
+                <div className='match-flag'>
+                    <img src={m.league.flag} alt={m.league.name} />
+                </div>
+
+                <div className='match-league'>
+                    {m.league.country}
+
+                    <div className="match-round">
+                        {m.league.name}
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div className="main-home-team">
+                    {m.teams.home.name}
+                </div>
+
+                <div className="main-match-result">
+                    {m.goals.home}:{m.goals.away}
+                </div>
+
+                <div className="main-away-team">
+                    {m.teams.away.name}
+                </div>
+            </main>
+        </div>
+    </Link>);
 
     return (
         <ul className='match-list'>
-            {liveMatches.map(m => <Link key={m.fixture.id} to={`/live/${m.fixture.id}`}>
+            {liveMatches.length > 0
+                ? renderLiveMatchesList
+                : 'There is no live matches yet. Please check again later.'
+            }
+            {/* {liveMatches.map(m => <Link key={m.fixture.id} to={`/live/${m.fixture.id}`}>
                 <div className='match-item'>
                     <header>
                         <div className='match-flag'>
@@ -57,7 +91,7 @@ const LiveMatchesList = () => {
                 </div>
 
 
-            </Link>)}
+            </Link>)} */}
         </ul>
     )
 };

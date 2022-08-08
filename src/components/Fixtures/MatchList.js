@@ -4,9 +4,10 @@ import MatchDetails from "./MatchDetails/MatchDetails";
 
 const MatchList = () => {
     const [matches, setMatches] = useState([]);
+    const [showMore, setShowMore] = useState(10);
 
     useEffect(() => {
-        fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-07', {
+        fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-08', {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Key': '16393793dbmsh4d76b449ff481c6p19207bjsn3ae3d8e407ae',
@@ -20,9 +21,14 @@ const MatchList = () => {
             .catch(err => console.error(err));
     }, []);
 
+    const onClickHandler = () => {
+        setShowMore((prevState) => prevState + 10);
+    };
+
     return (
         <ul className="match-list">
-            {matches.map(m => <MatchDetails key={m.fixture.id} data={m} />)}
+            <button onClick={onClickHandler}>show more</button>
+            {matches.slice(0, showMore).map(m => <MatchDetails key={m.fixture.id} data={m} />)}
         </ul>
     );
 };
