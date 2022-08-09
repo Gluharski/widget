@@ -5,7 +5,7 @@
 }
 
 .App {
-    max-width: 425px;
+    max-width: 1024px;
     margin: 0 auto;
     background-color: #fff;
 }
@@ -18,39 +18,81 @@ body {
     max-width: 100%;
 }
 
-.match-item {
-    padding: .5rem;
-    /* margin-bottom: 1rem;  */
-}
+/* .match-item {
+    padding: .5rem 0;
+} */
 
 header {
     width: 100%;
     display: flex;
 
     font-size: .7rem;
-    color: whitesmoke;
     font-weight: 600;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.1);
+    color: #000;
 }
 
 header .match-flag {
-    padding: .5rem;
+    padding: .3rem;
 }
 
 header .match-flag img {
-    width: 1.5rem;
+    width: 1.3rem;
 }
 
 header .match-league {
-    padding: .3rem;
-    /* padding: .3rem 0; */
+    /* padding: .3rem; */
+    padding: .3rem 0;
+    font-size: 1rem;
 }
 
 main { 
     display: flex;
     justify-content: space-between;
     padding: .5rem;
+    /* margin: 0.3rem 0;  */
     background-color: rgba(0,0,0,0,1);
+    background-color: coral;
+    background-color: #fff;
+}
+
+.main-brief {
+     display: flex;
+}
+
+.main-brief-game-status {
+    color: #3bb200;
+    margin-left: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+main .main-brief .green-dot {
+    margin-right: 0.3rem;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #3bb200;
+    animation: pulse 1s ease-in infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.1);
+    }
+    100%{
+        transform: scare(1);
+    }
+}
+
+.main-teams {
+    display: flex;
 }
 
 footer button {

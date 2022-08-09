@@ -7,7 +7,7 @@ const MatchList = () => {
     const [showMore, setShowMore] = useState(10);
 
     useEffect(() => {
-        fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-08', {
+        fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-09', {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Key': '16393793dbmsh4d76b449ff481c6p19207bjsn3ae3d8e407ae',
@@ -27,8 +27,9 @@ const MatchList = () => {
 
     return (
         <ul className="match-list">
-            <button onClick={onClickHandler}>show more</button>
             {matches.slice(0, showMore).map(m => <MatchDetails key={m.fixture.id} data={m} />)}
+
+            <button onClick={onClickHandler}>show more</button>
         </ul>
     );
 };

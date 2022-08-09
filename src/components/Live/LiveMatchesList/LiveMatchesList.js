@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import moment, { Moment } from 'moment-timezone';
+
 
 const LiveMatchesList = () => {
     const [liveMatches, setLiveMatches] = useState([]);
@@ -21,37 +23,59 @@ const LiveMatchesList = () => {
             .catch(err => console.error(err));
     }, []);
 
-    const renderLiveMatchesList = liveMatches.map(m => <Link key={m.fixture.id} to={`/live/${m.fixture.id}`}>
-        <div className='match-item'>
-            <header>
-                <div className='match-flag'>
-                    <img src={m.league.flag} alt={m.league.name} />
-                </div>
 
-                <div className='match-league'>
-                    {m.league.country}
+    const setNewDateHandler = (date) => {
+        const utcDate = moment.utc(date).format('YYYY-MM-DD HH:mm:ss');
+        console.log(utcDate); // 2015-09-13 03:39:27
 
-                    <div className="match-round">
-                        {m.league.name}
+        const stillUtc = moment.utc(utcDate).toDate();
+        const local = moment(stillUtc).local().format('HH:mm');
+
+        return local;
+    };
+
+
+    console.log(liveMatches)
+
+    const renderLiveMatchesList = liveMatches.map(m =>
+        <Link key={m.fixture.id} to={`/live/${m.fixture.id}`}>
+            <div className='match-item'>
+                <header>
+                    <div className='match-flag'>
+                        <img src={m.league.flag} alt={m.league.name} />
                     </div>
-                </div>
-            </header>
 
-            <main>
-                <div className="main-home-team">
-                    {m.teams.home.name}
-                </div>
+                    <div className='match-league'>
+                        {m.league.country} {m.league.name}
+                    </div>
+                </header>
 
-                <div className="main-match-result">
-                    {m.goals.home}:{m.goals.away}
-                </div>
+                <main>
+                    <div className='main-brief'>
+                        <div className='main-brief-game-time'>
+                            {/* {m.fixture.date} */}
+                            {setNewDateHandler(m.fixture.date)}
+                        </div>
+                        <div className='main-brief-game-status'>
+                            <span className='green-dot'></span>
+                            {m.fixture.status.elapsed}
+                        </div>
+                    </div>
 
-                <div className="main-away-team">
-                    {m.teams.away.name}
-                </div>
-            </main>
-        </div>
-    </Link>);
+                    <div className="main-home-team">
+                        {m.teams.home.name}
+                    </div>
+
+                    <div className="main-match-result">
+                        {m.goals.home}:{m.goals.away}
+                    </div>
+
+                    <div className="main-away-team">
+                        {m.teams.away.name}
+                    </div>
+                </main>
+            </div>
+        </Link>);
 
     return (
         <ul className='match-list'>
