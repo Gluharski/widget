@@ -48,11 +48,9 @@ header .match-league {
 
 main { 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: .5rem;
-    /* margin: 0.3rem 0;  */
     background-color: rgba(0,0,0,0,1);
-    background-color: coral;
     background-color: #fff;
 }
 
@@ -91,8 +89,32 @@ main .main-brief .green-dot {
     }
 }
 
-.main-teams {
-    display: flex;
+.main-home-team {
+    width: 350px;   
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* background-color: coral; */
+}
+
+
+main a { 
+    text-decoration: none;
+}
+
+.main-away-team {
+    width: 350px;   
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* background-color: coral; */
+}
+
+.main-home-team img, 
+.main-away-team img {
+    width: 16px;
+    height: 16px;
+    /* padding: .3rem; */
 }
 
 footer button {
@@ -148,4 +170,8 @@ nav ul li a{
     color: #fff;
     background-color: coral;
     border-radius: 5px;
+}
+
+.bolded {
+    font-weight: 700;
 }

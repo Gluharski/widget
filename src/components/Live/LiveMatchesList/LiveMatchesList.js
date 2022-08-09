@@ -16,17 +16,15 @@ const LiveMatchesList = () => {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(response);
-
                 setLiveMatches(response.response)
             })
             .catch(err => console.error(err));
     }, []);
 
 
-    const setNewDateHandler = (date) => {
+    const dateToLocal = (date) => {
         const utcDate = moment.utc(date).format('YYYY-MM-DD HH:mm:ss');
-        console.log(utcDate); // 2015-09-13 03:39:27
+        // console.log(utcDate); // 2015-09-13 03:39:27
 
         const stillUtc = moment.utc(utcDate).toDate();
         const local = moment(stillUtc).local().format('HH:mm');
@@ -53,26 +51,36 @@ const LiveMatchesList = () => {
                 <main>
                     <div className='main-brief'>
                         <div className='main-brief-game-time'>
-                            {/* {m.fixture.date} */}
-                            {setNewDateHandler(m.fixture.date)}
+                            {dateToLocal(m.fixture.date)}
                         </div>
                         <div className='main-brief-game-status'>
                             <span className='green-dot'></span>
-                            {m.fixture.status.elapsed}
+                            {m.fixture.status.elapsed
+                                ? m.fixture.status.elapsed
+                                : m.fixture.status.long
+                            }
                         </div>
                     </div>
 
                     <div className="main-home-team">
                         {m.teams.home.name}
+                        <img src={`https://media.api-sports.io/football/teams/${m.teams.home.id}.png`} />
                     </div>
 
                     <div className="main-match-result">
-                        {m.goals.home}:{m.goals.away}
+                        {/* {m.goals.home > m.goals.away
+                            ? m.teams.home.name && m.teams.goals.home
+                            : m.teams.away.name && m.teams.goals.away
+                        } */}
+
+                        {m.goals.home} - {m.goals.away}
                     </div>
 
                     <div className="main-away-team">
+                        <img src={`https://media.api-sports.io/football/teams/${m.teams.away.id}.png`} />
                         {m.teams.away.name}
                     </div>
+
                 </main>
             </div>
         </Link>);
