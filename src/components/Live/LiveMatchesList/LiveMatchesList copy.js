@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment-timezone';
 
+
 const LiveMatchesList = () => {
     const [liveMatches, setLiveMatches] = useState([]);
 
@@ -91,7 +92,7 @@ const LiveMatchesList = () => {
         <ul className='match-list'>
             {liveMatches.length > 0
                 ? renderLiveMatchesList
-                : 'Sorry but there is no data for live matches yet. Please check again later.'
+                : 'There is no live matches yet. Please check again later.'
             }
             {/* {liveMatches.map(m => <Link key={m.fixture.id} to={`/live/${m.fixture.id}`}>
                 <div className='match-item'>

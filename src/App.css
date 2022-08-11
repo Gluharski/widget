@@ -14,57 +14,9 @@ body {
     background-color: whitesmoke;
 }
 
-.match-list {
-    max-width: 100%;
-}
-
-/* .match-item {
-    padding: .5rem 0;
-} */
-
-header {
-    width: 100%;
-    display: flex;
-
-    font-size: .7rem;
-    font-weight: 600;
-    background-color: rgba(0,0,0,0.1);
-    color: #000;
-}
-
-header .match-flag {
-    padding: .3rem;
-}
-
-header .match-flag img {
-    width: 1.3rem;
-}
-
-header .match-league {
-    /* padding: .3rem; */
-    padding: .3rem 0;
-    font-size: 1rem;
-}
-
-main { 
-    display: flex;
-    justify-content: space-around;
-    padding: .5rem;
-    background-color: rgba(0,0,0,0,1);
-    background-color: #fff;
-}
-
-.main-brief {
-     display: flex;
-}
-
 .main-brief-game-status {
     color: #3bb200;
     margin-left: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
 }
 
 main .main-brief .green-dot {
@@ -89,89 +41,50 @@ main .main-brief .green-dot {
     }
 }
 
-.main-home-team {
-    width: 350px;   
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* background-color: coral; */
-}
-
-
-main a { 
-    text-decoration: none;
-}
-
-.main-away-team {
-    width: 350px;   
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* background-color: coral; */
-}
-
-.main-home-team img, 
-.main-away-team img {
-    width: 16px;
-    height: 16px;
-    /* padding: .3rem; */
-}
-
-footer button {
-    padding: .5rem;
-}
-
-
-/* form styling */
-form {
-    width: 100%;
-    padding: .5rem;
-    display: flex;
-}
-
-form input {
-    width: 100%;
-    padding: .5rem;
-}
-
-form button {
-    padding: .5rem;
-}
-
-
-/* NAVBAR */
-nav {
-    width: 100%;
-    padding: .5rem;
-    border-bottom: 2px solid rgba(0,0,0,0.9);
-    background-color: #fff;
-
-    position: sticky;
-    top: 0;
-}
-
-nav ul {
+/* football results component styles */
+ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+}
 
+li.list-item {
+    font-size: .9rem;
+}
+
+.league-information {
+    display: flex;
+    align-items: center;
+}
+
+.league-flag-container {
+    width: 25px;
+    height: 25px;
+}
+
+.league-flag-container img {
+    width: 100%;
+    height: 100%;
+}
+
+h3.league-name {
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.teams {
+    display: flex;
+    align-items: center;
+}
+
+.teams .home-team, .away-team {
     display: flex;
 }
 
-nav ul li a{
-    display: block;
-    padding: .5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
+.teams .home-team-logo, .away-team-logo {
+    width: 1rem;
+    height: 1rem;
 }
 
-.active {
-    color: #fff;
-    background-color: coral;
-    border-radius: 5px;
-}
-
-.bolded {
-    font-weight: 700;
+.teams .home-team-logo img, .away-team-logo img {
+    width: 100%;
+    height: 100%;
 }

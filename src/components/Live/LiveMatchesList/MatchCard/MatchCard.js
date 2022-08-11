@@ -1,7 +1,11 @@
-const MatchCard = ({ data }) => {
+import { useState, useEffect } from 'react';
+
+const MatchCard = ({ data, actionHandler }) => {
+    const [action, setAction] = useState(false);
+
     return (
         <div className='match-item'>
-            <header>
+            <div className='left-column'>
                 <div className='match-flag'>
                     <img src={data.league.flag} alt={data.league.name} />
                 </div>
@@ -13,7 +17,7 @@ const MatchCard = ({ data }) => {
                         {data.league.name}
                     </div>
                 </div>
-            </header>
+            </div>
 
             <main>
                 <div className="main-home-team">
