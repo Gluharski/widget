@@ -132,6 +132,7 @@ h3.league-name {
 .teams .home-team-logo, .away-team-logo {
     width: 1rem;
     height: 1rem;
+    margin: 0 .3rem;
 }
 
 .teams .home-team-logo img, .away-team-logo img {
