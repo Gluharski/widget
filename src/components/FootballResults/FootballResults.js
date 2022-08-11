@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 
+import { momentLibrary } from "../../utils/momentLibrary";
+
 const FootballResults = () => {
     const [matches, setMatches] = useState([]);
-    const [showMore, setShowMore] = useState(10);
+    const [values, setValues] = useState(10);
 
     useEffect(() => {
         fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-11', {
@@ -20,16 +22,21 @@ const FootballResults = () => {
             .catch(err => console.error(err));
     }, []);
 
-    // const onClickHandler = () => {
-    //     setShowMore((prevState) => prevState + 10);
-    // };
+    const onClickHandler = () => {
+        setValues((prevState) => prevState + 10);
+    };
 
     return (
         <section id="football-results">
-            <h2 className="section-title">Football Results</h2>
+            <h2 className="section-title">
+                <span>
+                    Football
+                </span>
+                Results
+            </h2>
 
             <ul>
-                {matches.map(m => (
+                {matches.slice(0, values).map(m => (
                     <li key={m.fixture.id} className="list-item">
                         <div className="league-information">
                             <div className="league-flag-container">
@@ -40,14 +47,28 @@ const FootballResults = () => {
                             </h3>
                         </div>
 
-                        <div className="teams">
+                        <div className="league-row">
+                            <div className="match-information">
+                                <div className="date">
+                                    {momentLibrary(m.fixture.date)}
+                                </div>
+
+                                <div className="status" title={m.fixture.status.long}>
+                                        {m.fixture.status.elapsed <= 90 && null
+                                            ? m.fixture.status.elapsed
+                                            : m.fixture.status.short
+                                        }
+                                </div>
+                            </div>
+
+                            <div className="teams">
                             {/* home team information */}
                             <div className="home-team">
-                                <div className="home-team-logo">
-                                    <img src={m.teams.home.logo} />
-                                </div>
                                 <div className="home-team-name">
                                     {m.teams.home.name}
+                                </div>
+                                <div className="home-team-logo">
+                                    <img src={m.teams.home.logo} />
                                 </div>
                                 <div className="home-team-result">
                                     {m.goals.home}
@@ -55,28 +76,29 @@ const FootballResults = () => {
                             </div>
 
                             {/* TODO: div separator */}
-                            {/* <div className="separator">-</div> */}
-
+                            <div className="separator"> - </div>
+ 
                             {/* away team information*/}
                             <div className="away-team">
+                                <div className="away-team-result">
+                                    {m.goals.away}
+                                </div>
                                 <div className="away-team-logo">
                                     <img src={m.teams.away.logo} />
                                 </div>
                                 <div className="away-team-name">
                                     {m.teams.away.name}
                                 </div>
-                                <div className="away-team-result">
-                                    {m.goals.away}
-                                </div>
+                            </div>
                             </div>
                         </div>
                     </li>
                 ))}
-                {/* <button onClick={onClickHandler}>show more</button> */}
+
+                <div className="btn">
+                    <button className="show-more" onClick={onClickHandler}>show more</button>
+                </div>
             </ul>
-
-            {/* {matches.slice(0, showMore).map(m => <MatchDetails key={m.fixture.id} data={m} />)} */}
-
         </section>
     );
 };
