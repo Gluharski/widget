@@ -1,4 +1,5 @@
 import './App.css';
+import FootballLiveScores from './components/FootballLiveScores/FootballLiveScore';
 import FootballResults from './components/FootballResults/FootballResults';
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
         <div className="App">
             {/* <Navbar /> */}
 
-            {/* <FootballFixtures /> */}
+            <FootballLiveScores />
             <FootballResults />
         </div>
     );

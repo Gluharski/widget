@@ -16,7 +16,7 @@ const FootballResults = () => {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(response.response);
+                // console.log(response.response);
                 setMatches(response.response);
             })
             .catch(err => console.error(err));
@@ -76,7 +76,7 @@ const FootballResults = () => {
                             </div>
 
                             {/* TODO: div separator */}
-                            <div className="separator"> - </div>
+                            <div className="separator">-</div>
  
                             {/* away team information*/}
                             <div className="away-team">
