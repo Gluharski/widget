@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-
 import { momentLibrary } from "../../utils/momentLibrary";
 
 const FootballResults = () => {
     const [matches, setMatches] = useState([]);
-    const [values, setValues] = useState(10);
+    const [values, setValues] = useState(5);
 
     useEffect(() => {
         fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-11', {
@@ -16,14 +15,13 @@ const FootballResults = () => {
         })
             .then(response => response.json())
             .then(response => {
-                // console.log(response.response);
                 setMatches(response.response);
             })
             .catch(err => console.error(err));
     }, []);
 
     const onClickHandler = () => {
-        setValues((prevState) => prevState + 10);
+        setValues((prevState) => prevState + 5);
     };
 
     return (
@@ -40,7 +38,7 @@ const FootballResults = () => {
                     <li key={m.fixture.id} className="list-item">
                         <div className="league-information">
                             <div className="league-flag-container">
-                                <img src={m.league.flag} />
+                                <img src={m.league.flag} alt="" />
                             </div>
                             <h3 className="league-name">
                                 {m.league.country} {m.league.name}
@@ -54,42 +52,42 @@ const FootballResults = () => {
                                 </div>
 
                                 <div className="status" title={m.fixture.status.long}>
-                                        {m.fixture.status.elapsed <= 90 && null
-                                            ? m.fixture.status.elapsed
-                                            : m.fixture.status.short
-                                        }
+                                    {m.fixture.status.elapsed <= 90 && null
+                                        ? m.fixture.status.elapsed
+                                        : m.fixture.status.short
+                                    }
                                 </div>
                             </div>
 
                             <div className="teams">
-                            {/* home team information */}
-                            <div className="home-team">
-                                <div className="home-team-name">
-                                    {m.teams.home.name}
+                                {/* home team information */}
+                                <div className="home-team">
+                                    <div className="home-team-name">
+                                        {m.teams.home.name}
+                                    </div>
+                                    <div className="home-team-logo">
+                                        <img src={m.teams.home.logo} alt="" />
+                                    </div>
+                                    <div className="home-team-result">
+                                        {m.goals.home}
+                                    </div>
                                 </div>
-                                <div className="home-team-logo">
-                                    <img src={m.teams.home.logo} />
-                                </div>
-                                <div className="home-team-result">
-                                    {m.goals.home}
-                                </div>
-                            </div>
 
-                            {/* TODO: div separator */}
-                            <div className="separator">-</div>
- 
-                            {/* away team information*/}
-                            <div className="away-team">
-                                <div className="away-team-result">
-                                    {m.goals.away}
+                                {/* TODO: div separator */}
+                                <div className="separator">-</div>
+
+                                {/* away team information*/}
+                                <div className="away-team">
+                                    <div className="away-team-result">
+                                        {m.goals.away}
+                                    </div>
+                                    <div className="away-team-logo">
+                                        <img src={m.teams.away.logo} alt="" />
+                                    </div>
+                                    <div className="away-team-name">
+                                        {m.teams.away.name}
+                                    </div>
                                 </div>
-                                <div className="away-team-logo">
-                                    <img src={m.teams.away.logo} />
-                                </div>
-                                <div className="away-team-name">
-                                    {m.teams.away.name}
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </li>

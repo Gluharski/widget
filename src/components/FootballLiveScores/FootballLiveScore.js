@@ -15,7 +15,7 @@ const FootballLiveScores = () => {
 		})
 			.then(response => response.json())
 			.then(response => {
-				console.log(response.response)
+				// console.log(response.response)
 				setMatches(response.response)
 			})
 			.catch(err => console.error(err));
@@ -40,7 +40,7 @@ const FootballLiveScores = () => {
 					<li key={m.fixture.id} className="list-item">
 						<div className="league-information">
 							<div className="league-flag-container">
-								<img src={m.league.flag} />
+								<img src={m.league.flag} alt="" />
 							</div>
 							<h3 className="league-name">
 								{m.league.country} {m.league.name}
@@ -54,7 +54,7 @@ const FootballLiveScores = () => {
 								</div>
 
 								<div className="status" title={m.fixture.status.long}>
-									{m.fixture.status.elapsed <= 90 && null
+									{m.fixture.status.elapsed <= 90 || null
 										? m.fixture.status.elapsed
 										: m.fixture.status.short
 									}
@@ -68,7 +68,7 @@ const FootballLiveScores = () => {
 										{m.teams.home.name}
 									</div>
 									<div className="home-team-logo">
-										<img src={m.teams.home.logo} />
+										<img src={m.teams.home.logo} alt="" />
 									</div>
 									<div className="home-team-result">
 										{m.goals.home}
@@ -84,7 +84,7 @@ const FootballLiveScores = () => {
 										{m.goals.away}
 									</div>
 									<div className="away-team-logo">
-										<img src={m.teams.away.logo} />
+										<img src={m.teams.away.logo} alt="" />
 									</div>
 									<div className="away-team-name">
 										{m.teams.away.name}
@@ -99,7 +99,7 @@ const FootballLiveScores = () => {
 					<button className="show-more" onClick={onClickHandler}>show more</button>
 				</div>
 			</ul>
-		</section>	
+		</section>
 	);
 };
 
