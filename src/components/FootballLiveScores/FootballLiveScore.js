@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { momentLibrary } from '../../utils/momentLibrary';
+import { convertUTCDateToLocalDate } from '../../utils/momentLibrary';
 
 const FootballLiveScores = () => {
 	const [matches, setMatches] = useState([]);
@@ -15,7 +15,7 @@ const FootballLiveScores = () => {
 		})
 			.then(response => response.json())
 			.then(response => {
-				// console.log(response.response)
+				console.log(response.response)
 				setMatches(response.response)
 			})
 			.catch(err => console.error(err));
@@ -50,7 +50,7 @@ const FootballLiveScores = () => {
 						<div className="league-row">
 							<div className="match-information">
 								<div className="date">
-									{momentLibrary(m.fixture.date)}
+									{convertUTCDateToLocalDate(m.fixture.date)}
 								</div>
 
 								<div className="status" title={m.fixture.status.long}>

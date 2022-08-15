@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { momentLibrary } from "../../utils/momentLibrary";
+
+import { convertUTCDateToLocalDate, setDay } from "../../utils/momentLibrary";
 
 const FootballResults = () => {
     const [matches, setMatches] = useState([]);
     const [values, setValues] = useState(5);
 
     useEffect(() => {
-        fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-11', {
+        fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-${setDay()}`, {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Key': '16393793dbmsh4d76b449ff481c6p19207bjsn3ae3d8e407ae',
@@ -23,6 +24,14 @@ const FootballResults = () => {
     const onClickHandler = () => {
         setValues((prevState) => prevState + 5);
     };
+
+    // const filterCountries = () => {
+    //     const data = matches;
+
+    //     data.every((x) => {
+    //         return x == x.league.id;
+    //     });
+    // }
 
     return (
         <section id="football-results">
@@ -42,13 +51,14 @@ const FootballResults = () => {
                             </div>
                             <h3 className="league-name">
                                 {m.league.country} {m.league.name}
+                                {/* {filterCountries()} */}
                             </h3>
                         </div>
 
                         <div className="league-row">
                             <div className="match-information">
                                 <div className="date">
-                                    {momentLibrary(m.fixture.date)}
+                                    {convertUTCDateToLocalDate(m.fixture.date)}
                                 </div>
 
                                 <div className="status" title={m.fixture.status.long}>
