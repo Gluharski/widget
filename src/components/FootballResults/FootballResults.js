@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { momentLibrary } from "../../utils/momentLibrary";
 
+import { setDay } from "../../utils/momentLibrary";
+
 const FootballResults = () => {
     const [matches, setMatches] = useState([]);
     const [values, setValues] = useState(5);
 
     useEffect(() => {
-        fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-11', {
+        fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-${setDay()}`, {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Key': '16393793dbmsh4d76b449ff481c6p19207bjsn3ae3d8e407ae',

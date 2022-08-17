@@ -9,3 +9,13 @@ export const momentLibrary = (date) => {
 
 	return local;
 };
+
+export const setDay = () => {
+	const utcDate = moment.utc().format('YYYY-MM-DD HH:mm:ss');
+
+	const stillUtc = moment.utc(utcDate).toDate();
+	const day = moment(stillUtc).local().format('DD');
+
+	// console.log(day);
+	return day;
+};
