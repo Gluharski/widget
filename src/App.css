@@ -51,6 +51,10 @@ li.list-item {
     font-size: .9rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 h2.section-title {
     text-align: center;
     padding: .5rem;
@@ -118,7 +122,7 @@ h3.league-name {
     display: flex;
     width: 250px;
     white-space: nowrap;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-overflow: ellipsis;
 }
 
@@ -167,4 +171,19 @@ h3.league-name {
     cursor: pointer;
     background-color: rgba(0,0,0,0.3);
     color: #fff;
+}
+
+.winner {
+    font-weight: 700;
+}
+
+/* Football Match Details Styles */
+.game-situation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-situation .home-team-stats, .away-team-stats {
+    text-align: center;
 }

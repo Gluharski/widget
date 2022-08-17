@@ -15,7 +15,7 @@ const FootballLiveScores = () => {
 		})
 			.then(response => response.json())
 			.then(response => {
-				console.log(response.response)
+				// console.log(response.response)
 				setMatches(response.response)
 			})
 			.catch(err => console.error(err));
@@ -94,14 +94,9 @@ const FootballLiveScores = () => {
 					</li>
 				))}
 
-				{matches.length <= 0
-					? <h3>
-						Sorry, there is no data for live matches yet. Please try again later.
-					</h3>
-					: <div className="btn">
-						<button className="show-more" onClick={onClickHandler}>show more</button>
-					</div>
-				}
+				<div className="btn">
+					<button className="show-more" onClick={onClickHandler}>show more</button>
+				</div>
 			</ul>
 		</section>
 	);

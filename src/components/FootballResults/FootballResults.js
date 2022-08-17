@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { momentLibrary } from "../../utils/momentLibrary";
+import { Link } from 'react-router-dom';
 
+import { momentLibrary } from "../../utils/momentLibrary";
 import { setDay } from "../../utils/momentLibrary";
 
 const FootballResults = () => {
@@ -17,6 +18,7 @@ const FootballResults = () => {
         })
             .then(response => response.json())
             .then(response => {
+                // console.log(response.response);
                 setMatches(response.response);
             })
             .catch(err => console.error(err));
@@ -61,7 +63,8 @@ const FootballResults = () => {
                                 </div>
                             </div>
 
-                            <div className="teams">
+                            <Link to={`/${m.fixture.id}`} className="teams">
+                                {/* <div className="teams"> */}
                                 {/* home team information */}
                                 <div className="home-team">
                                     <div className="home-team-name">
@@ -90,7 +93,8 @@ const FootballResults = () => {
                                         {m.teams.away.name}
                                     </div>
                                 </div>
-                            </div>
+                                {/* </div> */}
+                            </Link>
                         </div>
                     </li>
                 ))}
