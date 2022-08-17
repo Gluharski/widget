@@ -47,7 +47,7 @@ const FootballMatchDetails = () => {
 
                         <div className='game-result'>
                             <h2>
-                                {x.goals.home == null || x.goals.away == null
+                                {x.goals.home == null && x.goals.away == null
                                     ? 'Not started'
                                     : `${x.goals.home} - ${x.goals.away}`
                                 }
