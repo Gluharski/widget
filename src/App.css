@@ -192,3 +192,21 @@ h3.league-name {
 .game-situation .home-team-stats, .away-team-stats {
     text-align: center;
 }
+
+/* match events component styles */
+.match-events {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex: 1 2 auto;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 768px;
+    /* background-color: coral; */
+    margin: 0 auto;  /* must think about bigger container */
+}
+
+
+.match-events .event-time {
+    margin-right: 2rem;
+}

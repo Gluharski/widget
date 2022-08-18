@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import MatchEvents from '../MatchEvents';
 
 const FootballMatchDetails = () => {
     const [opponents, setOpponents] = useState([]);
@@ -21,8 +22,6 @@ const FootballMatchDetails = () => {
             })
             .catch(err => console.error(err));
     }, [matchId]);
-
-    console.log(opponents);
 
     return (
         <section className="match-details">
@@ -82,21 +81,22 @@ const FootballMatchDetails = () => {
                                 </h3>
                             </div>
                         </div>
-
+                        
+                        <MatchEvents key={x.fixture.id} {...x} />
                         {/* match events */}
-                        <div className='match-events'>
+                        {/* <div className='match-events'>
                             <div className='event-type'>
-                                {x.events.type}
+                                {x.events.type || null}
                             </div>
                             
-                            <div className='evet-time'>
-                                {/* {x.events.time.elapsed}' */}
+                            <div className='event-time'>
+                                {x.events.time.elapsed || null}'
                             </div>
 
                             <div className='evet-text'>
-                                {/* {`${x.events.time.elapsed}' ${x.events.type} for ${x.events.team.name}`} */}
+                                {`${x.events.time.elapsed}' ${x.events.type} for ${x.events.team.name}`}
                             </div>
-                        </div>
+                        </div> */}
                     </>
                 ))}
             </div>
