@@ -36,35 +36,67 @@ const FootballMatchDetails = () => {
             <div className='game-situation'>
                 {opponents.map(x => (
                     <>
-                        <div className='home-team-stats'>
-                            <div className='home-team-image-container'>
-                                <img src={x.teams.home.logo} alt={`${x.teams.home.name}`} />
+                        <div className='match-header'>
+                            <div className='home-team-stats'>
+                                <div className='home-team-image-container'>
+                                    <img src={x.teams.home.logo} alt={`${x.teams.home.name}`} />
+                                </div>
+                                <h3>
+                                    {x.teams.home.name}
+                                </h3>
+
+                                <div>
+                                </div>
                             </div>
-                            <h3>
-                                {x.teams.home.name}
-                            </h3>
-                        </div>
 
-                        <div className='game-result'>
-                            <h2>
-                                {x.goals.home == null && x.goals.away == null
-                                    ? 'Not started'
-                                    : `${x.goals.home} - ${x.goals.away}`
-                                }
-                            </h2>
+                            <div className='game-result'>
+                                <h2>
+                                    {x.goals.home == null && x.goals.away == null
+                                        ? 'Not started'
+                                        : `${x.goals.home} : ${x.goals.away}`
+                                    }
+                                </h2>
 
-                            {x.league.name}
-                        </div>
+                                <h6>
+                                    Half Time: ({x.score.halftime.home}:{x.score.halftime.away})
+                                </h6>
 
-                        <div className='away-team-stats'>
-                            <div className='away-team-image-container'>
-                                <img src={x.teams.away.logo} alt={`${x.teams.away.name}`} />
+                                <div className='league-round'>
+                                    {x.league.name}: {x.league.round}
+                                </div>
+
+                                <div className='match-stadium'>
+                                    {x.fixture.venue.name !== undefined
+                                        ? `${x.fixture.venue.name} (${x.fixture.venue.city})`
+                                        : null
+                                    }
+                                </div>
                             </div>
-                            <h3>
-                                {x.teams.away.name}
-                            </h3>
+
+                            <div className='away-team-stats'>
+                                <div className='away-team-image-container'>
+                                    <img src={x.teams.away.logo} alt={`${x.teams.away.name}`} />
+                                </div>
+                                <h3>
+                                    {x.teams.away.name}
+                                </h3>
+                            </div>
                         </div>
 
+                        {/* match events */}
+                        <div className='match-events'>
+                            <div className='event-type'>
+                                {x.events.type}
+                            </div>
+                            
+                            <div className='evet-time'>
+                                {/* {x.events.time.elapsed}' */}
+                            </div>
+
+                            <div className='evet-text'>
+                                {/* {`${x.events.time.elapsed}' ${x.events.type} for ${x.events.team.name}`} */}
+                            </div>
+                        </div>
                     </>
                 ))}
             </div>

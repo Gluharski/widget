@@ -53,6 +53,7 @@ li.list-item {
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 h2.section-title {
@@ -178,10 +179,14 @@ h3.league-name {
 }
 
 /* Football Match Details Styles */
-.game-situation {
+.match-header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.game-result {
+    text-align: center;
 }
 
 .game-situation .home-team-stats, .away-team-stats {

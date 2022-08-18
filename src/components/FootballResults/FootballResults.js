@@ -64,8 +64,6 @@ const FootballResults = () => {
                             </div>
 
                             <Link to={`/${m.fixture.id}`} className="teams">
-                                {/* <div className="teams"> */}
-                                {/* home team information */}
                                 <div className="home-team">
                                     <div className="home-team-name">
                                         {m.teams.home.name}
@@ -78,10 +76,8 @@ const FootballResults = () => {
                                     </div>
                                 </div>
 
-                                {/* TODO: div separator */}
                                 <div className="separator">-</div>
 
-                                {/* away team information*/}
                                 <div className="away-team">
                                     <div className="away-team-result">
                                         {m.goals.away}
@@ -93,7 +89,6 @@ const FootballResults = () => {
                                         {m.teams.away.name}
                                     </div>
                                 </div>
-                                {/* </div> */}
                             </Link>
                         </div>
                     </li>

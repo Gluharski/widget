@@ -8,7 +8,6 @@ import FootballResults from './components/FootballResults/FootballResults';
 function App() {
     return (
         <div className="App">
-            {/* <Navbar /> */}
             <FootballLiveScores />
             <FootballResults />
 
