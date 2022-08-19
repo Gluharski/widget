@@ -206,7 +206,10 @@ h3.league-name {
     margin: 0 auto;  /* must think about bigger container */
 }
 
-
 .match-events .event-time {
     margin-right: 2rem;
 }
+
+.match-events .event-type {
+    margin-right: 2rem;
+} 
