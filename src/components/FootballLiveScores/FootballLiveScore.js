@@ -26,12 +26,12 @@ const FootballLiveScores = () => {
 	};
 
 	return (
-		<section className="football-live-score">
-			<h2 className="section-title">
-				<span>
-					Football
+		<section className="live">
+			<h2 className='title'>
+				Live
+				<span className='match-counter'>
+					{matches.length}
 				</span>
-				Live Scores
 			</h2>
 
 			<ul>

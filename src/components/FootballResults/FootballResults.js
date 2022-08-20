@@ -29,12 +29,12 @@ const FootballResults = () => {
     };
 
     return (
-        <section id="football-results">
-            <h2 className="section-title">
-                <span>
-                    Football
+        <section className="fixtures">
+            <h2 className='title'>
+                fixtures
+                <span className='match-counter'>
+                    {matches.length}
                 </span>
-                Results
             </h2>
 
             <ul>
