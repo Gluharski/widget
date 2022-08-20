@@ -38,7 +38,7 @@ const FootballMatchDetails = () => {
             <div className='game-situation'>
                 {opponents.map(x => (
                     <>
-                        <div className='match-header'>
+                        <section className='match-header'>
                             <div className='home-team-stats'>
                                 <div className='home-team-image-container'>
                                     <img src={x.teams.home.logo} alt={`${x.teams.home.name}`} />
@@ -83,11 +83,11 @@ const FootballMatchDetails = () => {
                                     {x.teams.away.name}
                                 </h3>
                             </div>
-                        </div>
+                        </section>
 
-                        <MatchStats key={x.fixture.id} stats={x} />
+                        {/* <MatchStats key={x.fixture.id} stats={x} /> */}
                         <MatchEvents key={x.fixture.id} {...x} />
-                        <Lineups key={x.fixture.id} lineup={x.lineups} />
+                        <Lineups key={x.fixture.id} {...x} lineup={x.lineups} />
                         {/* match events */}
                         {/* <div className='match-events'>
                             <div className='event-type'>

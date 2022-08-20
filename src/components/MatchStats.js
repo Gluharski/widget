@@ -1,14 +1,15 @@
 const MatchStats = ({ stats }) => {
 
     const statistics = stats.statistics;
-    console.log(stats);
 
     return (
         <section className="match-stats">
             {statistics.map(x => (
-                // TODO: check which teamm is home
                 <div className="home-team-stats">
-                    {x.statistics.team.name} : {x.value}
+                    {x.statistics.team.name
+                        ? x.statistics.team.name
+                        : 'There is no statistics for this club.'
+                    } : {x.value && null}
                 </div>
             ))}
         </section>

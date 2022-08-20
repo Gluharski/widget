@@ -1,18 +1,20 @@
-const Player = ({ startingEleven, substitutes }) => {
-    console.log(startingEleven, substitutes);
+const Player = ({ startingEleven, substitutes, team, coach }) => {
 
     // Sometimes player object hasn't pos and grid and they are set to null 
     // Always players obejct has id, name and number
 
     return (
         <section className="players">
-            <h3>StartingXI:</h3>
+            <h3>{team}:</h3>
+
             {startingEleven.map(x => (
                 <div className="player-info">
+                    <div className="coach">
+                    </div>
                     <div className="player-number">
                         {x.player.number}
                     </div>
-                    <div className="plaery-name">
+                    <div className="player-name">
                         {x.player.name}
                     </div>
                 </div>
@@ -24,6 +26,11 @@ const Player = ({ startingEleven, substitutes }) => {
                     {x.player.number}. {x.player.name}
                 </div>
             )}
+
+            <h3>
+                Coach: {coach}
+            </h3>
+
         </section>
     )
 }

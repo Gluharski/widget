@@ -56,6 +56,14 @@ a {
     color: #000;
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 h2.section-title {
     text-align: center;
     padding: .5rem;
@@ -194,6 +202,29 @@ h3.league-name {
     text-align: center;
 }
 
+/* toggle button styles */
+.toggle-button {
+    width: 768px;
+    margin: 0 auto;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: coral;
+    border-bottom: 1px solid coral;
+    transition: background .3s ease-in;
+}
+
+.toggle-button:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.toggle-button .toggle-icon {
+    font-size: 20px;
+    font-weight: 700;
+}
 
 /* match-stats componenty styles  */
 .match-stats {
@@ -203,7 +234,12 @@ h3.league-name {
 }
 
 /* match events component styles */
-.match-events {
+/* .match-events {
+    flex: 1;
+    background-color: red;
+} */
+
+.match-event {
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
@@ -215,11 +251,11 @@ h3.league-name {
     margin: 0 auto;  /* must think about bigger container */
 }
 
-.match-events .event-time {
+.match-event .event-time {
     margin-right: 2rem;
 }
 
-.match-events .event-type {
+.match-event .event-type {
     margin-right: 2rem;
 } 
 
@@ -230,7 +266,6 @@ h3.league-name {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    align-items: center;
 }
 
 .player-info {
