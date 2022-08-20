@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+
 import MatchEvents from '../MatchEvents';
+import MatchStats from '../MatchStats';
+import Lineups from '../Lineups';
 
 const FootballMatchDetails = () => {
     const [opponents, setOpponents] = useState([]);
@@ -81,8 +84,10 @@ const FootballMatchDetails = () => {
                                 </h3>
                             </div>
                         </div>
-                        
+
+                        <MatchStats key={x.fixture.id} stats={x} />
                         <MatchEvents key={x.fixture.id} {...x} />
+                        <Lineups key={x.fixture.id} lineup={x.lineups} />
                         {/* match events */}
                         {/* <div className='match-events'>
                             <div className='event-type'>

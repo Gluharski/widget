@@ -3,8 +3,6 @@ import { TbArrowsRightLeft } from 'react-icons/tb/index'; // subst
 import { GiCardPlay } from 'react-icons/gi/index'; // card
 
 const MatchEvents = ({ events }) => {
-	console.log(events);
-
 	const checkEventTypeOfMatch = (event) => {
 		if (event == 'Goal') {
 			return <RiFootballFill />;
@@ -13,8 +11,6 @@ const MatchEvents = ({ events }) => {
 		} else if (event == 'subst') {
 			return <TbArrowsRightLeft />;
 		}
-
-		// TODO: probably 
 	};
 
 	return (

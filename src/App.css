@@ -183,6 +183,7 @@ h3.league-name {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 3rem;
 }
 
 .game-result {
@@ -191,6 +192,14 @@ h3.league-name {
 
 .game-situation .home-team-stats, .away-team-stats {
     text-align: center;
+}
+
+
+/* match-stats componenty styles  */
+.match-stats {
+    width: 768px;
+    margin: 0 auto;
+    padding: .5rem;
 }
 
 /* match events component styles */
@@ -213,3 +222,21 @@ h3.league-name {
 .match-events .event-type {
     margin-right: 2rem;
 } 
+
+/* player component styles */
+.lineups {
+    max-width: 768px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+.player-info {
+    display: flex;
+}
+
+.player-info .player-number {
+    margin-right: 7px;
+}
