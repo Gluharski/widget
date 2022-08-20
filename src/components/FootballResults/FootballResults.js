@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import { momentLibrary } from "../../utils/momentLibrary";
 import { setDay } from "../../utils/momentLibrary";
@@ -29,76 +29,78 @@ const FootballResults = () => {
     };
 
     return (
-        <section className="fixtures">
-            <h2 className='title'>
-                fixtures
-                <span className='match-counter'>
-                    {matches.length}
-                </span>
-            </h2>
+        <>
+            <section className="fixtures">
+                <h2 className='title'>
+                    fixtures
+                    <span className='match-counter'>
+                        {matches.length}
+                    </span>
+                </h2>
 
-            <ul>
-                {matches.slice(0, values).map(m => (
-                    <li key={m.fixture.id} className="list-item">
-                        <div className="league-information">
-                            <div className="league-flag-container">
-                                <img src={m.league.flag} alt="" />
-                            </div>
-                            <h3 className="league-name">
-                                {m.league.country} {m.league.name}
-                            </h3>
-                        </div>
-
-                        <div className="league-row">
-                            <div className="match-information">
-                                <div className="date">
-                                    {momentLibrary(m.fixture.date)}
+                <ul>
+                    {matches.slice(0, values).map(m => (
+                        <li key={m.fixture.id} className="list-item">
+                            <div className="league-information">
+                                <div className="league-flag-container">
+                                    <img src={m.league.flag} alt="" />
                                 </div>
-
-                                <div className="status" title={m.fixture.status.long}>
-                                    {m.fixture.status.elapsed <= 90 && null
-                                        ? m.fixture.status.elapsed
-                                        : m.fixture.status.short
-                                    }
-                                </div>
+                                <h3 className="league-name">
+                                    {m.league.country} {m.league.name}
+                                </h3>
                             </div>
 
-                            <Link to={`/${m.fixture.id}`} className="teams">
-                                <div className="home-team">
-                                    <div className="home-team-name">
-                                        {m.teams.home.name}
+                            <div className="league-row">
+                                <div className="match-information">
+                                    <div className="date">
+                                        {momentLibrary(m.fixture.date)}
                                     </div>
-                                    <div className="home-team-logo">
-                                        <img src={m.teams.home.logo} alt="" />
-                                    </div>
-                                    <div className="home-team-result">
-                                        {m.goals.home}
+
+                                    <div className="status" title={m.fixture.status.long}>
+                                        {m.fixture.status.elapsed <= 90 && null
+                                            ? m.fixture.status.elapsed
+                                            : m.fixture.status.short
+                                        }
                                     </div>
                                 </div>
 
-                                <div className="separator">-</div>
+                                <Link to={`/${m.fixture.id}`} className="teams">
+                                    <div className="home-team">
+                                        <div className="home-team-name">
+                                            {m.teams.home.name}
+                                        </div>
+                                        <div className="home-team-logo">
+                                            <img src={m.teams.home.logo} alt="" />
+                                        </div>
+                                        <div className="home-team-result">
+                                            {m.goals.home}
+                                        </div>
+                                    </div>
 
-                                <div className="away-team">
-                                    <div className="away-team-result">
-                                        {m.goals.away}
-                                    </div>
-                                    <div className="away-team-logo">
-                                        <img src={m.teams.away.logo} alt="" />
-                                    </div>
-                                    <div className="away-team-name">
-                                        {m.teams.away.name}
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </li>
-                ))}
+                                    <div className="separator">-</div>
 
-                <div className="btn">
-                    <button className="show-more" onClick={onClickHandler}>show more</button>
-                </div>
-            </ul>
-        </section>
+                                    <div className="away-team">
+                                        <div className="away-team-result">
+                                            {m.goals.away}
+                                        </div>
+                                        <div className="away-team-logo">
+                                            <img src={m.teams.away.logo} alt="" />
+                                        </div>
+                                        <div className="away-team-name">
+                                            {m.teams.away.name}
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        </li>
+                    ))}
+
+                    <div className="btn">
+                        <button className="show-more" onClick={onClickHandler}>show more</button>
+                    </div>
+                </ul>
+            </section>
+        </>
     );
 };
 

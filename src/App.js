@@ -3,9 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import FootballLiveScores from './components/FootballLiveScores/FootballLiveScore';
-import FootballMatchDetails from './components/FootballMatchDetails/FootballMatchDetails';
 import FootballResults from './components/FootballResults/FootballResults';
 import AppStatusMessage from './components/AppStatusMessage';
+import MatchtDetails from './components/MatchDetails';
 
 function App() {
     return (
@@ -14,9 +14,9 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<AppStatusMessage />} />
-                <Route path='/fixtures' element={<FootballResults />} />
                 <Route path='/live' element={<FootballLiveScores />} />
-                <Route path='/:matchId' element={<FootballMatchDetails />} />
+                <Route path='/fixtures' element={<FootballResults />} />
+                <Route path='/:matchId' element={<MatchtDetails />} />
             </Routes>
         </div>
     );
