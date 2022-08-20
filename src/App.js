@@ -4,17 +4,22 @@ import './App.css';
 import FootballLiveScores from './components/FootballLiveScores/FootballLiveScore';
 import FootballMatchDetails from './components/FootballMatchDetails/FootballMatchDetails';
 import FootballResults from './components/FootballResults/FootballResults';
+import AppStatusMessage from './components/AppStatusMessage';
 
 function App() {
     return (
-        <div className="App">
-            <FootballLiveScores />
-            <FootballResults />
+        <>
+            <AppStatusMessage />
+            <div className="App">
 
-            <Routes>
-                <Route path='/:matchId' element={<FootballMatchDetails />} />
-            </Routes>
-        </div>
+                <FootballLiveScores />
+                <FootballResults />
+
+                <Routes>
+                    <Route path='/:matchId' element={<FootballMatchDetails />} />
+                </Routes>
+            </div>
+        </>
     );
 }
 

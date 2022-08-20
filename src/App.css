@@ -64,6 +64,18 @@ a {
     display: block;
 }
 
+.application-status {
+    width: 768px;
+    padding: 1rem;
+    margin: 10px auto;
+
+    text-align: center;
+    background-color: yellow;
+    color: black;
+
+    font-weight: 700;
+}
+
 h2.section-title {
     text-align: center;
     padding: .5rem;
