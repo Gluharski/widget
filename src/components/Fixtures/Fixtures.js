@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
 
 // import { momentLibrary } from "../../utils/momentLibrary";
-import { setDay } from "../../utils/momentLibrary";
-
+import { setToLocalDate } from "../../utils/momentLibrary";
 import LeagueHeader from './LeagueHeader/LeagueHeader';
 import LeagueBody from './LeagueBody/LeagueBody';
 
 const Fixtures = () => {
 	const [data, setData] = useState([]);
-	const [notStared, setNotStarted] = useState([]);
-	const [fixtures, setFixtures] = useState([]);
+	// const [notStared, setNotStarted] = useState([]);
+	// const [fixtures, setFixtures] = useState([]);
 
 	useEffect(() => {
-		fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2022-08-${setDay()}`, {
+		fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?date=${setToLocalDate()}`, {
 			method: 'GET',
 			headers: {
 				'X-RapidAPI-Key': '16393793dbmsh4d76b449ff481c6p19207bjsn3ae3d8e407ae',
@@ -30,17 +29,23 @@ const Fixtures = () => {
 
 	return (
 		<section className='fixtures'>
-			{data.map(m => (
+			{data.map(x => (
 				<>
 					<LeagueHeader
-						key={m.league.id}
-						id={m.league.id}
-						flag={m.league.flag}
-						logo={m.league.logo}
-						name={m.league.name}
-						round={m.league.round}
+						key={x.league.id}
+						id={x.league.id}
+						flag={x.league.flag}
+						logo={x.league.logo}
+						name={x.league.name}
+						round={x.league.round}
 					/>
-					<LeagueBody />
+					
+					<LeagueBody
+						id={x.league.id}
+						date={x.fixture.date}
+						status={x.fixture.status}
+						teams={x.teams}
+					/>
 				</>
 			))}
 		</section>

@@ -22,7 +22,8 @@
 }
 
 .league-title {
-	font-weight: 600;
+	font-weight: 700;
+	/* font-size: .7rem; */
 	
 	color: #000000;
 }

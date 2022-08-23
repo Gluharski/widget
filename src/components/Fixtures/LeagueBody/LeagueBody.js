@@ -1,8 +1,16 @@
-const LeagueBody = () => {
+import Date from './Date/Date';
+import Teams from './Teams/Teams';
+
+const LeagueBody = ({
+	date,
+	teams
+}) => {
+
 	return (
-		<>
-			return date, status, teams, results
-		</>
+		<div className='match'>
+			<Date date={date} />
+			<Teams teams={teams} />
+		</div>
 	)
 };
 

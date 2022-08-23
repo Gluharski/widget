@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { momentLibrary } from '../../utils/momentLibrary';
+// import { momentLibrary } from '../../utils/momentLibrary';
 
 const FootballLiveScores = () => {
 	const [matches, setMatches] = useState([]);
@@ -49,7 +49,7 @@ const FootballLiveScores = () => {
 						<div className="league-row">
 							<div className="match-information">
 								<div className="date">
-									{momentLibrary(m.fixture.date)}
+									{/* {momentLibrary(m.fixture.date)} */}
 								</div>
 
 								<div className="status" title={m.fixture.status.long}>

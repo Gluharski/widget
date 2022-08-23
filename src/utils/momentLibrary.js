@@ -1,6 +1,6 @@
 import moment from 'moment-timezone';
 
-export const momentLibrary = (date) => {
+export const convertUTCtoLocalDate = (date) => {
 	const utcDate = moment.utc(date).format('YYYY-MM-DD HH:mm:ss');
 	// console.log(utcDate); // 2015-09-13 03:39:27
 
@@ -10,12 +10,11 @@ export const momentLibrary = (date) => {
 	return local;
 };
 
-export const setDay = () => {
+export const setToLocalDate = () => {
 	const utcDate = moment.utc().format('YYYY-MM-DD HH:mm:ss');
 
 	const stillUtc = moment.utc(utcDate).toDate();
-	const day = moment(stillUtc).local().format('DD');
+	const localDate = moment(stillUtc).local().format('YYYY-MM-DD');
 
-	// console.log(day);
-	return day;
+	return localDate;
 };
