@@ -1,25 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
 import FootballLiveScores from './components/FootballLiveScores/FootballLiveScore';
-import FootballMatchDetails from './components/FootballMatchDetails/FootballMatchDetails';
 import FootballResults from './components/FootballResults/FootballResults';
 import AppStatusMessage from './components/AppStatusMessage';
+import MatchtDetails from './components/MatchDetails';
 
 function App() {
     return (
-        <>
-            <AppStatusMessage />
-            <div className="App">
+        <div className='App'>
+            <Navbar />
 
-                <FootballLiveScores />
-                <FootballResults />
-
-                <Routes>
-                    <Route path='/:matchId' element={<FootballMatchDetails />} />
-                </Routes>
-            </div>
-        </>
+            <Routes>
+                <Route path='/' element={<AppStatusMessage />} />
+                <Route path='/live' element={<FootballLiveScores />} />
+                <Route path='/fixtures' element={<FootballResults />} />
+                <Route path='/:matchId' element={<MatchtDetails />} />
+            </Routes>
+        </div>
     );
 }
 
