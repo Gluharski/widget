@@ -39,7 +39,7 @@ const FootballResults = () => {
                 </h2>
 
                 <ul>
-                    {matches.slice(0, values).map(m => (
+                    {/* {matches.map(m => (
                         <li key={m.fixture.id} className="list-item">
                             <div className="league-information">
                                 <div className="league-flag-container">
@@ -93,10 +93,16 @@ const FootballResults = () => {
                                 </Link>
                             </div>
                         </li>
-                    ))}
+                    ))} */}
 
-                    <div className="btn">
+                    {/* <div className="btn">
                         <button className="show-more" onClick={onClickHandler}>show more</button>
+                    </div> */}
+
+                    <div className="spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </ul>
             </section>

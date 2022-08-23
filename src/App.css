@@ -400,3 +400,42 @@ a.back-btn {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
+
+
+
+.test-section {
+    flex: 1 1;
+    position: sticky;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* background-color: coral; */
+}
+
+.spinner div {
+    padding: 1rem;
+    margin: .5rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(to right, red, blue);
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

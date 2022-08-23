@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { AiOutlineFire } from 'react-icons/ai/index';
+import { BiTimer } from 'react-icons/bi/index';
 import { AiOutlineUnorderedList } from 'react-icons/ai/index';
 import { MdOutlineSpaceDashboard } from 'react-icons/md/index';
 
@@ -22,7 +23,8 @@ const Navbar = () => {
                 <li>
                     <NavLink to="/live">
                         <span className='navbar-icon'>
-                            <AiOutlineFire />
+                            {/* <AiOutlineFire /> */}
+                            <BiTimer />
                         </span>
                         {/* <span className='navbar-pathname'>
                             Live
