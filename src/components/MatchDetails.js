@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from "react-router-dom";
 
-import MatchEvents from './MatchEvents';
-import Lineups from './Lineups';
+// import MatchEvents from './MatchEvents';
+// import Lineups from './Lineups';
 
 const MatchtDetails = () => {
     const [opponents, setOpponents] = useState([]);
@@ -86,8 +86,8 @@ const MatchtDetails = () => {
                         </section>
 
                         {/* <MatchStats key={x.fixture.id} stats={x} /> */}
-                        <MatchEvents key={x.fixture.id} {...x} />
-                        <Lineups key={x.fixture.id} {...x} lineup={x.lineups} />
+                        {/* <MatchEvents key={x.fixture.id} {...x} /> */}
+                        {/* <Lineups key={x.fixture.id} {...x} lineup={x.lineups} /> */}
                     </>
                 ))}
             </div>

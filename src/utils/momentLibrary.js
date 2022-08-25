@@ -10,7 +10,7 @@ export const convertUTCtoLocalDate = (date) => {
 	return local;
 };
 
-export const setToLocalDate = () => {
+export const setDateToLocalDate = () => {
 	const utcDate = moment.utc().format('YYYY-MM-DD HH:mm:ss');
 
 	const stillUtc = moment.utc(utcDate).toDate();

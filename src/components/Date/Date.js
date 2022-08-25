@@ -1,4 +1,4 @@
-import { convertUTCtoLocalDate } from '../../../../utils/momentLibrary';
+import { convertUTCtoLocalDate } from '../../utils/momentLibrary';
 
 const Date = ({ date }) => {
 	return (

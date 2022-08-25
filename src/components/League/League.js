@@ -1,14 +1,12 @@
-import styles from './LeagueHeader.module.css';
+import styles from './League.module.css';
 
-const LeagueHeader = ({
-	name,
-	flag
-}) => {
+const League = ({ flag, name }) => {
 	return (
 		<div className={styles['league-header']}>
 			<div className={styles['league-flag']}>
-				<img src={flag} />
+				<img src={flag} alt={flag} />
 			</div>
+			
 			<div className={styles['league-title']}>
 				{name}
 			</div>
@@ -16,4 +14,4 @@ const LeagueHeader = ({
 	)
 }
 
-export default LeagueHeader;
+export default League;
