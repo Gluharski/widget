@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 // TODO: install uuid for ids
 
@@ -10,6 +10,7 @@ import styles from './Fixtures.module.css';
 
 const Fixtures = () => {
 	const [data, setData] = useState([]);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?date=${setDateToLocalDate()}`, {
@@ -32,6 +33,7 @@ const Fixtures = () => {
 				{data.map(x => (
 					<Link to={`${x.fixture.id}`}>
 						<Matches
+							// onClick={() => navigate(`/${x.league.id}`)}
 							// key={x.league.id}
 							id={x.league.id}
 							flag={x.league.flag}
@@ -46,7 +48,7 @@ const Fixtures = () => {
 					</Link>
 				))}
 			</div>
-			
+
 			<MatchtDetails />
 		</section>
 	)

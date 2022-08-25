@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const MatchtDetails = () => {
     const [opponents, setOpponents] = useState([]);
     const { matchId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const options = {
@@ -17,12 +18,12 @@ const MatchtDetails = () => {
         fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${matchId}`, options)
             .then(response => response.json())
             .then(response => {
-                setOpponents(response.response);
+                setOpponents(response.response)
             })
             .catch(err => console.error(err));
     }, [matchId]);
 
-    // console.log(opponents);
+    console.log(opponents);
 
     return (
         <section className="match-details">
