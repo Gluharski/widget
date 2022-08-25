@@ -1,0 +1,7 @@
+.fixtures {
+	display: flex;
+}
+
+.match-list {
+	flex: 2;
+}

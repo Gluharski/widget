@@ -1,16 +1,32 @@
-import styles from './Teams.module.css';
-
-const Teams = ({ teams }) => {
+const Teams = ({ teams, goals }) => {
 	return (
 		<div className="teams">
 			<div className="home-team">
-				{teams.home.name}
+				<div className='home-team-name'>
+					{teams.home.name}
+				</div>
+				<div className='home-team-logo'>
+					<img src={teams.home.logo} />
+				</div>
+
+				<div className="home-team-scores">
+					{goals.home}
+				</div>
 			</div>
 
 			<div className="separator">-</div>
 
 			<div className="away-team">
-				{teams.away.name}
+				<div className='home-team-score'>
+					{goals.away}
+				</div>
+
+				<div className="away-team-logo">
+					<img src={teams.away.logo} />
+				</div>
+				<div className='away-team-name'>
+					{teams.away.name}
+				</div>
 			</div>
 		</div>
 	)

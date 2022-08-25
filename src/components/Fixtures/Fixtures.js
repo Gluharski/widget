@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 // TODO: install uuid for ids
 
 import { setDateToLocalDate } from "../../utils/momentLibrary";
+import MatchtDetails from '../MatchDetails';
 import Matches from '../Matches';
+import styles from './Fixtures.module.css';
 
 const Fixtures = () => {
 	const [data, setData] = useState([]);
@@ -24,20 +27,27 @@ const Fixtures = () => {
 	}, []);
 
 	return (
-		<section className='fixtures'>
-			{data.map(x => (
-				<Matches
-					// key={x.league.id}
-					id={x.league.id}
-					flag={x.league.flag}
-					logo={x.league.logo}
-					name={x.league.name}
-					round={x.league.round}
-					date={x.fixture.date}
-					status={x.fixture.status}
-					teams={x.teams}
-				/>
-			))}
+		<section className={styles['fixtures']}>
+			<div className={styles['match-list']}>
+				{data.map(x => (
+					<Link to={`${x.fixture.id}`}>
+						<Matches
+							// key={x.league.id}
+							id={x.league.id}
+							flag={x.league.flag}
+							logo={x.league.logo}
+							name={x.league.name}
+							round={x.league.round}
+							date={x.fixture.date}
+							status={x.fixture.status}
+							teams={x.teams}
+							goals={x.goals}
+						/>
+					</Link>
+				))}
+			</div>
+			
+			<MatchtDetails />
 		</section>
 	)
 };

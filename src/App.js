@@ -15,7 +15,7 @@ function App() {
             <Routes>
                 <Route path='/live' element={<FootballLiveScores />} />
                 <Route path='/fixtures' element={<Fixtures />} />
-                <Route path='/:matchId' element={<MatchtDetails />} />
+                <Route path='/fixtures/:matchId' element={<MatchtDetails />} />
             </Routes>
         </div>
     );
