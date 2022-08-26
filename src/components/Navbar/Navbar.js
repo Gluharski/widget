@@ -8,7 +8,6 @@ import { useContext } from 'react';
 import SoccerContext from '../contexts/SoccerContext';
 
 const Navbar = () => {
-    const { name } = useContext(SoccerContext);
     return (
         <nav>
             <ul>
@@ -38,17 +37,6 @@ const Navbar = () => {
                         <span className='navbar-icon'>
                             <AiOutlineUnorderedList />
                         </span>
-                        {/* <span className='navbar-pathname'>
-                            Fixtures
-                        </span> */}
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/fixtures">
-                        <span className='navbar-icon'>
-                            <AiOutlineUnorderedList />
-                        </span>
-                        {name}
                     </NavLink>
                 </li>
             </ul>
