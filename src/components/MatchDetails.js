@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 import { useState, useEffect } from 'react';
 import { Routes, Route, NavLink, useParams } from "react-router-dom";
+=======
+import { useState, useEffect, useRef } from 'react';
+import { useParams, Link } from "react-router-dom";
+>>>>>>> Stashed changes
 
 // import Info from './Info/Info';
 // import Summary from './Summary/Summary';
@@ -10,6 +15,7 @@ import MoreDetails from './MoreDetails';
 const MatchtDetails = () => {
     const [data, setData] = useState([]);
     const { matchId } = useParams();
+    // const  = useRef();
 
     useEffect(() => {
         const options = {

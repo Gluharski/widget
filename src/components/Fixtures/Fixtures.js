@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+<<<<<<< Updated upstream
 // TODO: install uuid for ids
 
 import { setDateToLocalDate } from "../../utils/momentLibrary";
 import Matches from '../Matches';
 import styles from './Fixtures.module.css';
 import MatchDetails from '../MatchDetails';
+=======
+import { setToLocalDate } from "../../utils/momentLibrary";
+import MatchtDetails from '../MatchDetails';
+import Match from './Match/Match'
+>>>>>>> Stashed changes
 
 const Fixtures = () => {
 	const [data, setData] = useState([]);
@@ -27,6 +33,7 @@ const Fixtures = () => {
 	}, []);
 
 	return (
+<<<<<<< Updated upstream
 		<section className={styles['fixtures']}>
 			<div className={styles['match-list']}>
 				{data.map(x => (
@@ -46,6 +53,22 @@ const Fixtures = () => {
 					</Link>
 				))}
 			</div>
+=======
+		<section className='fixtures'>
+			{data.map(x => (
+				<Match
+					flag={x.league.flag}
+					logo={x.league.logo}
+					name={x.league.name}
+					round={x.league.round}
+					date={x.fixture.date}
+					status={x.fixture.status}
+					teams={x.teams}
+				/>
+			))}
+
+			<MatchtDetails />
+>>>>>>> Stashed changes
 		</section>
 	)
 };
