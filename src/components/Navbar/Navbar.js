@@ -1,11 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import { AiOutlineFire } from 'react-icons/ai/index';
+// import { AiOutlineFire } from 'react-icons/ai/index';
 import { BiTimer } from 'react-icons/bi/index';
 import { AiOutlineUnorderedList } from 'react-icons/ai/index';
 import { MdOutlineSpaceDashboard } from 'react-icons/md/index';
 
-import { useContext } from 'react';
-import SoccerContext from '../contexts/SoccerContext';
 
 const Navbar = () => {
     return (

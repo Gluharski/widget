@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // TODO: install uuid for ids
 
 import { setDateToLocalDate } from "../../utils/momentLibrary";
-import MatchtDetails from '../MatchDetails';
 import Matches from '../Matches';
 import styles from './Fixtures.module.css';
+import MatchDetails from '../MatchDetails';
 
 const Fixtures = () => {
 	const [data, setData] = useState([]);
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?date=${setDateToLocalDate()}`, {
@@ -31,11 +30,10 @@ const Fixtures = () => {
 		<section className={styles['fixtures']}>
 			<div className={styles['match-list']}>
 				{data.map(x => (
-					<Link to={`${x.fixture.id}`}>
+					<Link to={`/fixtures/${x.fixture.id}`}>
 						<Matches
-							// onClick={() => navigate(`/${x.league.id}`)}
 							// key={x.league.id}
-							id={x.league.id}
+							// id={x.league.id}
 							flag={x.league.flag}
 							logo={x.league.logo}
 							name={x.league.name}
@@ -48,8 +46,6 @@ const Fixtures = () => {
 					</Link>
 				))}
 			</div>
-
-			<MatchtDetails />
 		</section>
 	)
 };

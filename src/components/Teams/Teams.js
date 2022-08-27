@@ -6,7 +6,7 @@ const Teams = ({ teams, goals }) => {
 					{teams.home.name}
 				</div>
 				<div className='home-team-logo'>
-					<img src={teams.home.logo} />
+					<img src={teams.home.logo} alt={teams.home.logo} />
 				</div>
 
 				<div className="home-team-scores">
@@ -22,7 +22,7 @@ const Teams = ({ teams, goals }) => {
 				</div>
 
 				<div className="away-team-logo">
-					<img src={teams.away.logo} />
+					<img src={teams.away.logo} alt={teams.away.logo} />
 				</div>
 				<div className='away-team-name'>
 					{teams.away.name}

@@ -1,7 +1,16 @@
 .fixtures {
+	width: 100%;
+
 	display: flex;
+	flex-direction: column;
+	/* flex: 2 1 100%; */
+	
+	background-color: bisque;
 }
 
 .match-list {
-	flex: 2;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	/* flex: 2 1 100%; */
 }

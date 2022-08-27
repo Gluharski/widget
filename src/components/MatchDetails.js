@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from "react-router-dom";
+import { Routes, Route, NavLink, useParams } from "react-router-dom";
+
+// import Info from './Info/Info';
+// import Summary from './Summary/Summary';
+// import Head2Head from './Head2Head/Head2Head';
+
+import MoreDetails from './MoreDetails';
 
 const MatchtDetails = () => {
-    const [opponents, setOpponents] = useState([]);
+    const [data, setData] = useState([]);
     const { matchId } = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
         const options = {
@@ -18,17 +23,46 @@ const MatchtDetails = () => {
         fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${matchId}`, options)
             .then(response => response.json())
             .then(response => {
-                setOpponents(response.response)
+                setData(response.response)
             })
             .catch(err => console.error(err));
     }, [matchId]);
 
-    console.log(opponents);
+    console.log(data);
 
     return (
-        <section className="match-details">
+        <div className='details'>
+            {data.map(x => (
+                <div className='match-header'>
+                    <div className='home-team-info'>
+                        <div className='home-team-logo'>
+                            <img src={x.teams.home.logo} />
+                        </div>
+                        <div className='home-team-info-name'>
+                            {x.teams.home.name}
+                        </div>
+                    </div>
 
-        </section>
+                    <div className='match-result-info'>
+                        <h3>
+                            {x.score.fulltime.home} - {x.score.fulltime.away}
+                        </h3>
+                    </div>
+
+                    <div className='away-team-info'>
+                        <div className='away-team-logo'>
+                            <img src={x.teams.away.logo} />
+                        </div>
+                        <div className='away-team-info-name'>
+                            {x.teams.away.name}
+                        </div>
+                    </div>
+
+                </div>
+            ))}
+
+            <MoreDetails {...data} />
+        </div>
     )
 };
 export default MatchtDetails;
