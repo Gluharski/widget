@@ -1,7 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from "react-router-dom";
-
-import MoreDetails from './MoreDetails';
 
 const MatchtDetails = () => {
     const [data, setData] = useState([]);
@@ -17,9 +15,9 @@ const MatchtDetails = () => {
         };
 
         fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${matchId}`, options)
-            .then(response => response.json())
-            .then(response => {
-                setData(response.response)
+            .then(res => res.json())
+            .then(res => {
+                setData(res.response)
             })
             .catch(err => console.error(err));
     }, [matchId]);
@@ -28,6 +26,9 @@ const MatchtDetails = () => {
 
     return (
         <div className='details'>
+            
+            <Link to="/">Back</Link>
+
             {data.map(x => (
                 <div className='match-header'>
                     <div className='home-team-info'>
@@ -53,11 +54,8 @@ const MatchtDetails = () => {
                             {x.teams.away.name}
                         </div>
                     </div>
-
                 </div>
             ))}
-
-            <MoreDetails {...data} />
         </div>
     )
 };
