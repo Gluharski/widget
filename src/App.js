@@ -13,14 +13,12 @@ function App() {
                 <Navbar />
             </nav>
 
-            <main>
-                <Routes>
-                    <Route path='/live' element={<LiveMatchesList />} />
-                    <Route path='/fixtures' element={<FixturesMatchList />} />
-                    <Route path='/:matchId' element={<MatchtDetails />} />
-                </Routes>
-            </main>
-        </div>
+            <Routes>
+                <Route path='/' element={<LiveMatchesList />} />
+                <Route path='/fixtures' element={<FixturesMatchList />} />
+                <Route path='/:matchId' element={<MatchtDetails />} />
+            </Routes>
+        </div >
     );
 }
 

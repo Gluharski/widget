@@ -27,8 +27,8 @@ const MatchtDetails = () => {
         <section className={styles['match-details-section']}>
             {data.map(x => (
                 <div className={styles['match-header']}>
-                    <div className='home-team-info'>
-                        <div className='home-team-logo'>
+                    <div className={styles['home-team-info']}>
+                        <div className={styles['home-team-logo']}>
                             <img src={x.teams.home.logo} />
                         </div>
                         <div className='home-team-info-name'>
@@ -36,14 +36,14 @@ const MatchtDetails = () => {
                         </div>
                     </div>
 
-                    <div className='match-result-info'>
+                    <div className={styles['match-result-info']}>
                         <h3>
                             {x.score.fulltime.home} - {x.score.fulltime.away}
                         </h3>
                     </div>
 
-                    <div className='away-team-info'>
-                        <div className='away-team-logo'>
+                    <div className={styles['away-team-info']}>
+                        <div className={styles['away-team-logo']}>
                             <img src={x.teams.away.logo} />
                         </div>
                         <div className='away-team-info-name'>

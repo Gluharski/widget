@@ -9,7 +9,7 @@ const Navbar = () => {
 		<nav className={styles['navbar-aside']}>
 			<ul className={styles['navbar-list']}>
 				<li className={styles['navbar-item']}>
-					<Link to='/live'>
+					<Link to='/'>
 						<AiOutlineFire />
 					</Link>
 				</li>
