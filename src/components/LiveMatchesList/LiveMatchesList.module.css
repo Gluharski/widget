@@ -1,5 +1,14 @@
-li {
+li.list-item {
 	border: 1px solid #111;
+}
+
+.football-live-scores {
+	padding: .3rem;
+	border: 1px solid #222;
+}
+
+.football-live-scores .league-row {
+	width: 100%;
 }
 
 .league-information {
@@ -41,13 +50,18 @@ li {
 /* league row */
 .league-row {
 	width: 100%;
+	
+	padding: .3rem;
+
 	background-color: #181818;
+
 	border-radius: 10px;
 	transition: all .5s ease-out;
 }
 
 .league-row:hover {
 	background-color: #fdfdfd;
+	color: #222;
 }
 
 .teams {
@@ -60,7 +74,11 @@ li {
 	/* background-color: red; */
 }
 
-a {
+.match-result {
+	padding: .3rem;
+}
+
+.league-row a {
 	display: flex;
 	text-decoration: none;
 	color: #aaa;
@@ -79,6 +97,7 @@ a {
 	margin: .1rem;
 	
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -89,8 +108,24 @@ a {
 	margin: 0 .3rem;
 }
 
+.left-column {
+	display: flex;
+	align-items: center;
+}
+
+.home-team-score,
+.away-team-score {
+	padding: .3rem;
+}
+
 .home-team-logo img,
 .away-team-logo img {
 	width: 100%;
 	height: 100%;
+}
+
+.fixture-matches-list,
+.live-matches-list {
+	padding: .3rem;
+	border: 1px solid #222;
 }

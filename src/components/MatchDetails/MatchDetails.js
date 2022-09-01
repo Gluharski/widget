@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from "react-router-dom";
 
+import styles from './MatchDetails.module.css';
+
 const MatchtDetails = () => {
     const [data, setData] = useState([]);
     const { matchId } = useParams();
 
     useEffect(() => {
-        const options = {
-            method: 'GET',
+        fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${matchId}`, {
             headers: {
                 'X-RapidAPI-Key': '16393793dbmsh4d76b449ff481c6p19207bjsn3ae3d8e407ae',
                 'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
             }
-        };
-
-        fetch(`https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${matchId}`, options)
+        })
             .then(res => res.json())
             .then(res => {
                 setData(res.response)
@@ -25,12 +24,9 @@ const MatchtDetails = () => {
     console.log(data);
 
     return (
-        <div className='details'>
-            
-            <Link to="/">Back</Link>
-
+        <section className={styles['match-details-section']}>
             {data.map(x => (
-                <div className='match-header'>
+                <div className={styles['match-header']}>
                     <div className='home-team-info'>
                         <div className='home-team-logo'>
                             <img src={x.teams.home.logo} />
@@ -56,7 +52,7 @@ const MatchtDetails = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </section>
     )
 };
 export default MatchtDetails;

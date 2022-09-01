@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { momentLibrary } from '../../utils/momentLibrary';
+import { Link } from 'react-router-dom';
 
-import styles from './LiveMatchesList.module.css';
+import styles from '../LiveMatchesList/LiveMatchesList.module.css';
 
-const LiveMatchesList = () => {
+const FixturesMatchList = () => {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all', {
-			method: 'GET',
+		fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2021-04-07', {
 			headers: {
 				'X-RapidAPI-Key': '16393793dbmsh4d76b449ff481c6p19207bjsn3ae3d8e407ae',
 				'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
@@ -17,17 +16,17 @@ const LiveMatchesList = () => {
 		})
 			.then(res => res.json())
 			.then(res => {
-				// console.log(res);
+				console.log(res.response);
 				setData(res.response)
 			})
 			.catch(err => console.error(err));
 	}, []);
 
 	return (
-		<section className={styles['football-live-scores']}>
+		<section className={styles['fixture-matches-list']}>
 			<ul>
 				{data.length <= 0
-					? 'There is no live matches yet. Please, try again later.'
+					? 'There is no fixtures yet. Please, try again later.'
 					: data.map(m => (
 						<li key={m.fixture.id} className="list-item">
 							<div className={styles['league-information']}>
@@ -66,6 +65,10 @@ const LiveMatchesList = () => {
 													{m.teams.home.name}
 												</div>
 											</div>
+
+											<div className='home-team-score'>
+												{m.goals.home}
+											</div>
 										</div>
 
 										{/* away team information*/}
@@ -79,6 +82,10 @@ const LiveMatchesList = () => {
 													{m.teams.away.name}
 												</div>
 											</div>
+
+											<div className='away-team-score'>
+												{m.goals.away}
+											</div>
 										</div>
 									</div>
 								</Link>
@@ -87,7 +94,7 @@ const LiveMatchesList = () => {
 					))}
 			</ul>
 		</section>
-	);
+	)
 };
 
-export default LiveMatchesList;
+export default FixturesMatchList;

@@ -1,0 +1,40 @@
+ul {
+	list-style-type: none;
+}
+
+.navbar-aside {
+	height: 100vh;
+	
+	display: flex;
+	align-items: center;
+	
+	position: sticky;
+	top: 0;
+	left: 0;
+
+	/* border-right: 1px solid #222; */
+}
+
+.navbar-list {
+	padding: .3rem;
+}
+
+.navbar-item {
+	border: none;
+}
+
+.navbar-item a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.navbar-list a {
+	padding: .3rem;
+	font-size: 30px;
+	margin: .3rem 0;
+	border-radius: 5px;
+}
+
+.active {
+	color: red;
+}
