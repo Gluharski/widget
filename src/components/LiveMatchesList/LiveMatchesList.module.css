@@ -3,6 +3,7 @@ li.list-item {
 }
 
 .football-live-scores {
+	width: 100%;
 	padding: .3rem;
 	border: 1px solid #222;
 }
@@ -128,4 +129,11 @@ li.list-item {
 .live-matches-list {
 	padding: .3rem;
 	border: 1px solid #222;
+}
+
+.match-result {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
 }

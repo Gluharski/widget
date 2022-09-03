@@ -81,6 +81,15 @@ const LiveMatchesList = () => {
 											</div>
 										</div>
 									</div>
+
+									<div className={styles['match-result']}>
+										<div className={styles['home-team-goals']}>
+											{m.goals.home}
+										</div>
+										<div className={styles['away-team-goals']}>
+											{m.goals.away}
+										</div>
+									</div>
 								</Link>
 							</div>
 						</li>
