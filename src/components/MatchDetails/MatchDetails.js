@@ -38,8 +38,11 @@ const MatchtDetails = () => {
 
                     <div className={styles['match-result-info']}>
                         <h3>
-                            {x.score.fulltime.home} - {x.score.fulltime.away}
+                            {x.goals.home} - {x.goals.away}
                         </h3>
+                        <span>
+                            render witch half they are playing
+                        </span>
                     </div>
 
                     <div className={styles['away-team-info']}>

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { momentLibrary } from '../../utils/momentLibrary';
 
+import { momentLibrary } from '../../utils/momentLibrary';
 import styles from './LiveMatchesList.module.css';
+import MatchStatus from '../MatchStatus/MatchStatus';
 
 const LiveMatchesList = () => {
 	const [data, setData] = useState([]);
@@ -50,12 +51,11 @@ const LiveMatchesList = () => {
 								<Link to={`/${m.fixture.id}`}>
 									<div className={styles['match-information']}>
 										<div className={styles['match-date']}>
-											{momentLibrary(m.fixture.date)}
+											{<MatchStatus date={m.fixture.date} />}
 										</div>
 									</div>
 
 									<div className={styles['teams']}>
-										{/* home team information */}
 										<div className={styles['home-team']}>
 											<div className={styles['left-column']}>
 												<div className={styles['home-team-logo']}>
@@ -68,7 +68,6 @@ const LiveMatchesList = () => {
 											</div>
 										</div>
 
-										{/* away team information*/}
 										<div className={styles['away-team']}>
 											<div className={styles['left-column']}>
 												<div className={styles['away-team-logo']}>

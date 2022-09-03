@@ -1,7 +1,9 @@
-const MatchStatus = (props) => {
+import { momentLibrary } from "../../utils/momentLibrary";
+
+const MatchStatus = ({ date }) => {
 	return (
 		<>
-			game status
+			{momentLibrary(date)}
 		</>
 	)
 }
