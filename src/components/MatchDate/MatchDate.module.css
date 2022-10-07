@@ -1,0 +1,15 @@
+.timer {
+	animation: pulse 1.5s linear infinite;
+}
+
+@keyframes pulse {
+	0% {
+		color: #aaa;
+	}
+	50% {
+		color: greenyellow
+	}
+	100% {
+		color: #aaa;
+	}
+}

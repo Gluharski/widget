@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 import { momentLibrary } from '../../utils/momentLibrary';
 import styles from './LiveMatchesList.module.css';
+<<<<<<< Updated upstream
 import MatchStatus from '../MatchStatus/MatchStatus';
+=======
+import MatchDate from '../MatchDate/MatchDate';
+>>>>>>> Stashed changes
 
 const LiveMatchesList = () => {
 	const [data, setData] = useState([]);
@@ -18,8 +22,8 @@ const LiveMatchesList = () => {
 		})
 			.then(res => res.json())
 			.then(res => {
-				// console.log(res);
 				setData(res.response)
+				console.log(data);
 			})
 			.catch(err => console.error(err));
 	}, []);
@@ -51,7 +55,14 @@ const LiveMatchesList = () => {
 								<Link to={`/${m.fixture.id}`}>
 									<div className={styles['match-information']}>
 										<div className={styles['match-date']}>
+<<<<<<< Updated upstream
 											{<MatchStatus date={m.fixture.date} />}
+=======
+											{/* {momentLibrary(m.fixture.date)} */}
+											<MatchDate {...m} />
+											{/* TODO: Check if match is started */}
+											{/* TODO: Check match status => playing, not started, hf, ft */}
+>>>>>>> Stashed changes
 										</div>
 									</div>
 
@@ -78,6 +89,16 @@ const LiveMatchesList = () => {
 													{m.teams.away.name}
 												</div>
 											</div>
+										</div>
+
+									</div>
+
+									<div className={styles['match-result']}>
+										<div className={styles['home-team-scores']}>
+											{m.goals.home}
+										</div>
+										<div className={styles['home-team-scores']}>
+											{m.goals.away}
 										</div>
 									</div>
 

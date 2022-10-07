@@ -3,8 +3,9 @@
 	
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
 
-	background-color: coral;
+	/* background-color: coral; */
 }
 
 .match-header {
@@ -34,4 +35,13 @@
 
 .match-result-info {
 	font-size: 30px;
+}
+
+nav.match-details-nav ul {
+	display: flex;
+	/* background-color: red; */
+}
+
+.active {
+	background-color: coral;
 }

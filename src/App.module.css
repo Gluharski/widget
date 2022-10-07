@@ -4,13 +4,25 @@
     box-sizing: border-box;
 }
 
+<<<<<<< Updated upstream:src/App.module.css
+=======
+/* body {
+    background-color: #111;
+} */
+
+>>>>>>> Stashed changes:src/App.css
 
 body {
     background-color: #999;
 }
 
 .App {
+<<<<<<< Updated upstream:src/App.module.css
     width: 425px;
+=======
+    width: 768px;
+>>>>>>> Stashed changes:src/App.css
     margin: 0 auto;
     display: flex;
+    font-family: Arial, Helvetica, sans-serif;
 }

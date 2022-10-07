@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Routes, Route } from "react-router-dom";
 
 import styles from './MatchDetails.module.css';
+import Summary from './Summary/Summary';
 
 const MatchtDetails = () => {
     const [data, setData] = useState([]);
@@ -55,6 +56,24 @@ const MatchtDetails = () => {
                     </div>
                 </div>
             ))}
+
+            <nav className={styles['match-details-nav']}>
+                <ul>
+                    <li><Link to={`${matchId}/summary`}>Summary</Link></li>
+                    <li><Link to={`${matchId}/line-ups`}>Line-Ups</Link></li>
+                    <li><Link to={`${matchId}/table`}>Table</Link></li>
+                    <li><Link to={`${matchId}/h2h`}>H2H</Link></li>
+                </ul>
+            </nav>
+
+
+            <section>
+                <Routes>
+                    <Route to={`/summary`} element={<Summary />} />
+                </Routes>
+            </section>
+
+
         </section>
     )
 };
